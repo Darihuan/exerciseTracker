@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 router.post('/api/users', async (req, res) => {
 
     try {
+        console.log(req.body)
         const usuario = await User.create(req.body);
         res.json(usuario);
     } catch (error) {
@@ -52,6 +53,7 @@ router.post('/api/users/:id/exercises', async (req, res) => {
             date: exercise.date.toDateString(),
             _id: user._id
         }
+        console.log(exerciseDtoOutput)
 
         res.json(exerciseDtoOutput);
     } catch (error) {
